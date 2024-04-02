@@ -1,0 +1,19 @@
+1. I create just one table, and I think that's enough for inputying each course exam score.
+
+2. The 'exam_date' column is clearly for recording the date of the exam.
+
+3. The 'number_semester' column is for recording the semester number. Like 1, 2, ..., 8 etc.
+
+4. The 'exam_period' column is to recording option such as 'mid-semester' or 'end-semester' or another period.
+If the 'exam_period' option is more than 5 or maybe the examp period has a certain description or rule,
+we should create another reference table specifically for the exam period.
+
+5. 'student_ID' is also for record the student who took the exam. We only need the ID because we can
+create queries for more advance results or analytics.
+
+6. Number 5 is also applies to 'course_ID'. These two columns can be the "key" to make queries
+based on these columns.
+
+7. And lastly, the 'score' column is obviously for recording the score.
+
+8. So there is 2 foreign key that we need: one for student and one for course table.
