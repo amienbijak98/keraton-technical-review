@@ -1,35 +1,35 @@
-1. First, makesure my connection with postgres is well established.
-Then, Login into my default postgres' username.
+1. First, make sure my connection with PostgreSQL is well established.
+Then, Login into my default Postgres username.
 
-2. Then I create db (database) in PostgreSQL Schema like this
-~postgres=# CREATE DATABASE keraton_academy
+2. Then I create database in PostgreSQL schema like this
+'~postgres=# CREATE DATABASE keraton_academy'.
 
 3. I should select my database from the first time,
 because we cannot select database with SQL syntax (USE [database_name]) like other SQL.
-I use DBeaver so I set my connected db is "keraton_academy"
+I use DBeaver, so I set my connected database as "keraton_academy".
 
-4. Then I write the sql syntax file.
+4. Then I write the SQL syntax file.
 
-5. I use 'IF NOT EXISTS' to prevent error if I run
-the SQL file more than once. Because there is only one
+5. I use 'IF NOT EXISTS' to prevent errors if I run
+the SQL file more than once because there is only one
 table at a time in one database.
 
-6. I use serial to make ID's auto increment
+6. I use 'serial' to make ID's auto increment.
 
-7. Varchar(n) is to limit lenght of the data. So we can save more
-storage or memory for the system. Same with SMALLINT but it for
-number lenght/max data. The starting_year actually only need 4 digit number.
-Same with the credit points that only use not more than 2-3 digit number per course
+7. 'Varchar(n)' is to limit length of the data so we can save more
+storage or memory for the system. The same applies to with SMALLINT but it's for
+number lenght or max data. The starting_year actually only need 4 digit number,
+similar to credit points, which only use not more than 2-3 digit number per course.
 
-8. The NOT NULL information is for stricting the incoming data. To avoid negligence
-that sent nothing. But I allow city column to be null because it's not as important
-as the other column. Not all column need to be filled with data.
+8. The 'NOT NULL' information is for stricting the incoming data to avoid negligence
+that sends nothing. However, I allow the city column to be null because it's not as important
+as the other columns. Not all columns need to be filled with data.
 
-9. In the course table, I set the lecturer_ID column with integer data.
-because serial is same with integer, but no auto increment feature. And in this table
-we don't need auto increment, becuase we use this column as foreign key constraint.
+9. In the course table, I set the 'lecturer_ID' column with integer data.
+because 'serial' is same as integer but without auto increment feature. In this table,
+we don't need auto increment becuase we use this column as foreign key constraint.
 
-10. The last statement in create course table, I write Constraint with its object
-(foreign key and references) to make the lecturer_ID column in this course table,
-to be connected/have relation with the lecturer table.
-The releation is one (lecturer) to many (course)
+10. The last statement in creating the course table, I write constraint with its object
+(foreign key and references) to make the 'lecturer_ID' column in this course table
+connected or have relation with the lecturer table. The releationship is
+one (lecturer) to many (courses)
