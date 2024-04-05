@@ -1,15 +1,17 @@
-CREATE TABLE IF NOT EXISTS exam (
-    exam_ID SERIAL PRIMARY KEY,
-    exam_date DATE NOT NULL,
+CREATE TABLE IF NOT EXISTS course_taken (
+    id SERIAL PRIMARY KEY,
+    course_id INTEGER NOT NULL,
+    student_id INTEGER NOT NULL,
     number_semester SMALLINT NOT NULL,
-    exam_period VARCHAR(10) NOT NULL,
-    student_ID INTEGER NOT NULL,
-    course_ID INTEGER NOT NULL,
-    score SMALLINT,
-    CONSTRAINT fk_student
-        FOREIGN KEY(student_ID)
-        	REFERENCES student(student_ID),
-    CONSTRAINT fk_course
-    	FOREIGN KEY(course_ID)
-        	REFERENCES course(course_ID)
+    mid_exam_date DATE NOT NULL,
+    mid_exam_score SMALLINT,
+    end_exam_date DATE NOT NULL,
+    end_exam_score SMALLINT,
+    final_score SMALLINT GENERATED ALWAYS AS ((mid_exam_score * 0.5) + (end_exam_score * 0.5)) STORED,
+    CONSTRAINT fk_students
+        FOREIGN KEY(student_id)
+        	REFERENCES students(id),
+    CONSTRAINT fk_courses
+    	FOREIGN KEY(course_id)
+        	REFERENCES courses(id)
     )

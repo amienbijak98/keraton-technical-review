@@ -14,7 +14,8 @@ I use DBeaver, so I set my connected database as "keraton_academy".
 the SQL file more than once because there is only one
 table at a time in one database.
 
-6. I use 'serial' to make ID's auto increment.
+6. For ID, I just named it with "ID" for ease me when later I use GORM (Golang ORM)
+that use "ID" for default primary key. I also use 'serial' to make ID's auto increment.
 
 7. 'Varchar(n)' is to limit length of the data so we can save more
 storage or memory for the system. The same applies to with SMALLINT but it's for
@@ -25,11 +26,11 @@ similar to credit points, which only use not more than 2-3 digit number per cour
 that sends nothing. However, I allow the city column to be null because it's not as important
 as the other columns. Not all columns need to be filled with data.
 
-9. In the course table, I set the 'lecturer_ID' column with integer data.
+9. In the course table, I set the 'lecturer_id' column with integer data.
 because 'serial' is same as integer but without auto increment feature. In this table,
 we don't need auto increment becuase we use this column as foreign key constraint.
 
 10. The last statement in creating the course table, I write constraint with its object
-(foreign key and references) to make the 'lecturer_ID' column in this course table
+(foreign key and references) to make the 'lecturer_id' column in this course table
 connected or have relation with the lecturer table. The releationship is
 one (lecturer) to many (courses)

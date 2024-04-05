@@ -1,22 +1,22 @@
-CREATE TABLE IF NOT EXISTS student (
-    student_ID SERIAL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS students (
+    id SERIAL PRIMARY KEY,
     student_name VARCHAR(50) NOT NULL,
     city VARCHAR(50),
-    starting_year SMALLINT NOT NULL
+    starting_year SMALLINT 1NOT NULL
     )
 
-CREATE TABLE IF NOT EXISTS lecturer (
-    lecturer_ID SERIAL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS lecturers (
+    id SERIAL PRIMARY KEY,
     lecturer_name VARCHAR(100) NOT NULL,
     city VARCHAR(50)
     )
 
-CREATE TABLE IF NOT EXISTS course (
-    course_ID SERIAL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS courses (
+    id SERIAL PRIMARY KEY,
     course_name VARCHAR(100) NOT NULL,
-    lecturer_ID INTEGER NOT NULL,
+    lecturer_id INTEGER NOT NULL,
     credit SMALLINT NOT NULL,
-    CONSTRAINT fk_lecturer
-        FOREIGN KEY(lecturer_ID)
-        REFERENCES lecturer(lecturer_ID)
+    CONSTRAINT fk_lecturers
+        FOREIGN KEY(lecturer_id)
+        REFERENCES lecturers(lecturer_id)
     )
