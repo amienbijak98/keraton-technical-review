@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"task_6/validator"
 	"time"
 
 	"github.com/brandenc40/romannumeral"
@@ -42,9 +43,14 @@ func ScanRomanFile(file *os.File, outputFile string) int {
 
 	lines := 0
 	for scanner.Scan() {
-		int_number, _ := romannumeral.StringToInt(scanner.Text())
-		WriteFileString(wFile, fmt.Sprintln(scanner.Text(), "=", int_number))
-		lines++
+		if realRoman, err := validator.RomanValidator(scanner.Text()); realRoman {
+			int_number, _ := romannumeral.StringToInt(scanner.Text())
+			WriteFileString(wFile, fmt.Sprintln(scanner.Text(), "=", int_number))
+			lines++
+		} else {
+			WriteFileString(wFile, fmt.Sprintln(scanner.Text(), "=", err.Error()))
+			lines++
+		}
 	}
 
 	if err := scanner.Err(); err != nil {
