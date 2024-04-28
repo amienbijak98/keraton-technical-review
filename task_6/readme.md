@@ -1,7 +1,7 @@
 # Roman Numeric Converter
 
 Coded to complete the Keraton technical review task number 6. By Bijak Amien Muttaqie
-_Estimated work time 30-45 minutes_
+_Estimated work time 3 hours_
 
 ## How To Use The App
 
@@ -17,3 +17,5 @@ _Estimated work time 30-45 minutes_
   - bufio : for scanning the file
 - External Library :
   - github.com/brandenc40/romannumeral : for converting the roman to integer value.
+  - github.com/go-playground/validator/v10 : for validate input type
+  - github.com/stretchr/testify/assert : for assertion test
