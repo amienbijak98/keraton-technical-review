@@ -8,7 +8,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-// var numbers = make(chan int)
 var stopGenerating = make(chan struct{})
 
 func ShutDownRequest(c *fiber.Ctx) error {
